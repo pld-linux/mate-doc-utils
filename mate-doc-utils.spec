@@ -32,9 +32,9 @@ XSLT style sheets that were once distributed with Yelp.
 
 %prep
 %setup -q
-NOCONFIGURE=1 ./autogen.sh
 
 %build
+NOCONFIGURE=1 ./autogen.sh
 %configure \
 	--host=%{_host} \
 	--build=%{_host} \
