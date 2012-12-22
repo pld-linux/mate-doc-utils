@@ -4,15 +4,17 @@ Version:	1.5.0
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Development/Tools
-URL:		http://mate-desktop.org/
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
 # Source0-md5:	eac5e9052303773fd6a97736180e6330
+URL:		http://mate-desktop.org/
 BuildRequires:	intltool
 BuildRequires:	mate-common
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	rarian-devel
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	automake
 #Requires:	docbook-dtds
 Requires:	gnome-doc-utils
