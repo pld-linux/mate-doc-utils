@@ -11,6 +11,7 @@ BuildRequires:	intltool
 BuildRequires:	mate-common
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	rarian-devel
 BuildRequires:	tar >= 1:1.22
@@ -47,7 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name}
+%find_lang %{name} --with-omf --with-mate --all-name
 
 # Remove unnecessary python sitepackages provided by gnome-doc-utils
 rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/*
@@ -68,13 +69,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/mate-doc-prepare
 %attr(755,root,root) %{_bindir}/mate-doc-tool
 %{_aclocaldir}/mate-doc-utils.m4
-# XXX: what's right package
-%dir %{_datadir}/mate
-%dir %{_datadir}/mate/help
-%{_datadir}/mate/help/mate-doc-make
-%{_datadir}/mate/help/mate-doc-xslt
-%{_datadir}/omf/mate-doc-make
-%{_datadir}/omf/mate-doc-xslt
 %{_datadir}/mate-doc-utils
 %{_datadir}/xml/mate
 %{_npkgconfigdir}/mate-doc-utils.pc
+
+# XXX: what's the right package
+%dir %{_datadir}/mate
+%dir %{_datadir}/mate/help
