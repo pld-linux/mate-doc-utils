@@ -72,7 +72,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mate-doc-utils
 %{_datadir}/xml/mate
 %{_npkgconfigdir}/mate-doc-utils.pc
-
-# XXX: what's the right package
-%dir %{_datadir}/mate
-%dir %{_datadir}/mate/help
