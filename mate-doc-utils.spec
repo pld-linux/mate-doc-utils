@@ -2,18 +2,18 @@ Summary:	MATE Desktop doc utils
 Name:		mate-doc-utils
 Version:	1.5.0
 Release:	1
-License:	GPLv2+ and LGPLv2+
+License:	GPL v2+ and LGPL v2+
 Group:		Development/Tools
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
 # Source0-md5:	eac5e9052303773fd6a97736180e6330
-URL:		http://mate-desktop.org/
+URL:		http://wiki.mate-desktop.org/mate-doc-utils
+BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
+BuildRequires:	libxml2-devel >= 1:2.6.12
+BuildRequires:	libxslt-devel
 BuildRequires:	mate-common
-BuildRequires:	pkgconfig(gnome-doc-utils)
-BuildRequires:	pkgconfig(libxml-2.0)
-BuildRequires:	rpmbuild(find_lang) >= 1.36
-BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	rarian-devel
+BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	automake
