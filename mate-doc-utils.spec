@@ -1,11 +1,11 @@
 Summary:	MATE Desktop doc utils
 Name:		mate-doc-utils
-Version:	1.5.0
+Version:	1.6.0
 Release:	1
 License:	GPL v2+ and LGPL v2+
 Group:		Development/Tools
-Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
-# Source0-md5:	eac5e9052303773fd6a97736180e6330
+Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
+# Source0-md5:	b31895a9d48460231f0a317cb3db49ed
 URL:		http://wiki.mate-desktop.org/mate-doc-utils
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
