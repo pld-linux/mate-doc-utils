@@ -1,11 +1,11 @@
 Summary:	MATE Desktop doc utils
 Name:		mate-doc-utils
-Version:	1.6.0
+Version:	1.6.1
 Release:	1
 License:	GPL v2+ and LGPL v2+
 Group:		Development/Tools
 Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
-# Source0-md5:	b31895a9d48460231f0a317cb3db49ed
+# Source0-md5:	373060e1ee08a5904a7ebe43accc487b
 URL:		http://wiki.mate-desktop.org/mate-doc-utils
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
@@ -35,7 +35,6 @@ XSLT style sheets that were once distributed with Yelp.
 %setup -q
 
 %build
-NOCONFIGURE=1 ./autogen.sh
 %configure \
 	--host=%{_host} \
 	--build=%{_host} \
