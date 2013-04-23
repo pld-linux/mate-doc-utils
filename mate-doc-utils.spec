@@ -7,6 +7,7 @@ Group:		Development/Tools
 Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
 # Source0-md5:	373060e1ee08a5904a7ebe43accc487b
 URL:		http://wiki.mate-desktop.org/mate-doc-utils
+BuildRequires:	docbook-dtd44-xml
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
 BuildRequires:	libxml2-devel >= 1:2.6.12
