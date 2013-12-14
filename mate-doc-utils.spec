@@ -1,36 +1,41 @@
-Summary:	MATE Desktop doc utils
+Summary:	MATE Desktop documentation utilities
+Summary(pl.UTF-8):	Narzędzia do generowania dokumentacji dla środowiska MATE Desktop
 Name:		mate-doc-utils
 Version:	1.6.2
 Release:	1
-License:	GPL v2+ and LGPL v2+
+License:	GPL v2+ (utilities), LGPL v2+ (XSLT files)
 Group:		Development/Tools
 Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
 # Source0-md5:	6bbbe07b54404a5bbe19e5d21e21aebe
 URL:		http://wiki.mate-desktop.org/mate-doc-utils
 BuildRequires:	docbook-dtd44-xml
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils
-BuildRequires:	intltool
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libxml2-devel >= 1:2.6.12
-BuildRequires:	libxslt-devel
+BuildRequires:	libxslt-devel >= 1.1.8
 BuildRequires:	mate-common
+BuildRequires:	python >= 1:2.4
 BuildRequires:	rarian-devel
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	automake
-#Requires:	docbook-dtds
+# for xml2po and mallard templates
 Requires:	gnome-doc-utils
-Requires:	mate-common
-Requires:	pkgconfig
-#Requires:	xml-common
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-mate-doc-utils is a collection of documentation utilities for the Mate
+mate-doc-utils is a collection of documentation utilities for the MATE
 project. Notably, it contains utilities for building documentation and
 all auxiliary files in your source tree, and it contains the DocBook
 XSLT style sheets that were once distributed with Yelp.
+
+%description -l pl.UTF-8
+mate-doc-utils to zbiór narzędzi związanych z dokumentacją dla
+projektu MATE. W szczególności zawiera narzędzia do budowania
+dokumentacji, wszystkie dodatkowe pliki potrzebne w drzewie źródeł
+oraz szablony stylów XSLT, które były rozprowadzane wraz z Yelpem.
 
 %prep
 %setup -q
@@ -50,25 +55,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name} --with-omf --with-mate --all-name
 
-# Remove unnecessary python sitepackages provided by gnome-doc-utils
-rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/*
-rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/xml2po/
-rm -rf $RPM_BUILD_ROOT%{_mandir}/man1/*
-rm -rf $RPM_BUILD_ROOT%{_datadir}/xml/mallard
-rm -rf $RPM_BUILD_ROOT%{_bindir}/xml2po
-rm -rf $RPM_BUILD_ROOT%{_npkgconfigdir}/xml2po.pc
-# Debian script not needed
-rm -rf $RPM_BUILD_ROOT%{_datadir}/mate-doc-utils/mate-debian.sh
+# Remove xml2po utility and mallard templates provided by gnome-doc-utils
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/xml2po
+%{__rm} $RPM_BUILD_ROOT%{_bindir}/xml2po
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man1/xml2po.1*
+%{__rm} $RPM_BUILD_ROOT%{_npkgconfigdir}/xml2po.pc
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/xml/mallard
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS README NEWS COPYING COPYING.GPL COPYING.LGPL
+%doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/mate-doc-prepare
 %attr(755,root,root) %{_bindir}/mate-doc-tool
-%{_aclocaldir}/mate-doc-utils.m4
 %{_datadir}/mate-doc-utils
 %{_datadir}/xml/mate
+%{_aclocaldir}/mate-doc-utils.m4
 %{_npkgconfigdir}/mate-doc-utils.pc
