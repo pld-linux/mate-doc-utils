@@ -2,7 +2,7 @@ Summary:	MATE Desktop documentation utilities
 Summary(pl.UTF-8):	Narzędzia do generowania dokumentacji dla środowiska MATE Desktop
 Name:		mate-doc-utils
 Version:	1.6.2
-Release:	1
+Release:	2
 License:	GPL v2+ (utilities), LGPL v2+ (XSLT files)
 Group:		Development/Tools
 Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
