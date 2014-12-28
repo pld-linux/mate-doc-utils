@@ -9,7 +9,7 @@ Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
 # Source0-md5:	6bbbe07b54404a5bbe19e5d21e21aebe
 URL:		http://wiki.mate-desktop.org/mate-doc-utils
 BuildRequires:	docbook-dtd44-xml
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libxml2-devel >= 1:2.6.12
